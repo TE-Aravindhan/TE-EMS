@@ -1,6 +1,10 @@
 package com.te.ems.service;
 
+
 import javax.transaction.Transactional;
+
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +16,7 @@ import com.te.ems.dao.UserDao;
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
+
 	private UserDao dao;
 
 	@Override
@@ -42,5 +47,12 @@ public class UserServiceImpl implements UserService {
 		}
 		return "Username not found";
 	}
+
+
+	@Override
+	public List<UserInfo> getAllDetials() {
+		return userDao.findAll();
+	}
+
 
 }
