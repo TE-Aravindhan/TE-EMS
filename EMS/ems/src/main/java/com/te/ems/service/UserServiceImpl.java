@@ -11,18 +11,13 @@ import com.te.ems.customexceptions.UserNotFoundException;
 import javax.transaction.Transactional;
 
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.te.ems.bean.UserInfo;
-
 import com.te.ems.dao.UserDao;
 
 @Service
 public class UserServiceImpl implements UserService {
-
 
 	@Autowired
 	private UserDao userDao;
@@ -74,6 +69,10 @@ public class UserServiceImpl implements UserService {
 	public List<UserInfo> getAllDetials() {
 		return userDao.findAll();
 	}
-
+  
+  	@Override
+	public UserInfo register(UserInfo info) {
+		return userDao.save(info);
+	}
 
 }

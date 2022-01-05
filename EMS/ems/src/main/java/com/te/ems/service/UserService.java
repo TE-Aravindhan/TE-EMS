@@ -10,8 +10,9 @@ public interface UserService {
   
   public Object toUpdate(UserInfo info);
   
-  	public Boolean login(String userName, String password);
-
+  public Boolean login(String userName, String password);
+  
+	public UserInfo register(UserInfo info);
 
 
 }

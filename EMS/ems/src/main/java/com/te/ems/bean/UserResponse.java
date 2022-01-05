@@ -4,7 +4,6 @@ package com.te.ems.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-
 @Data
 @AllArgsConstructor
 
@@ -19,5 +18,6 @@ public class UserResponse implements Serializable {
 	private Boolean error;
 	
 	private Object data;
+
 
 }
