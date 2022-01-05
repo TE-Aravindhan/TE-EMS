@@ -6,4 +6,5 @@ import com.te.ems.bean.UserInfo;
 
 public interface UserDao extends JpaRepository<UserInfo, String>{
 
+
 }
