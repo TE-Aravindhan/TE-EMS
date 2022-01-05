@@ -1,0 +1,29 @@
+package com.te.ems.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class UserInfo implements Serializable{
+	
+	private String name;
+	
+	@Column(name="user_name")
+	private String userName;
+	
+	private Integer age;
+	
+	private String job;
+	
+	private Double salary;
+	
+	private String mail;
+	
+	private String password;
+	
+}

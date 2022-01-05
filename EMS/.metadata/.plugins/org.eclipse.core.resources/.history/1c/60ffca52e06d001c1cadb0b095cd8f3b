@@ -1,0 +1,5 @@
+package com.te.ems.bean;
+
+public class UserInfo {
+
+}
