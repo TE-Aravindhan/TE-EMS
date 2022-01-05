@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -33,6 +35,7 @@ public class UserInfo implements Serializable{
 	
 	private String mail;
 	
+	@JsonIgnore
 	private String password;
 	
 }
