@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -50,8 +52,10 @@ public class UserInfo implements Serializable{
 	@NotEmpty(message = "mail should not be empty")
 	private String mail;
 	
+
 	@NotNull(message = "password should not be null")
 	@NotEmpty(message = "password should not be empty")
+	@JsonIgnore
 	private String password;
 	
 }
