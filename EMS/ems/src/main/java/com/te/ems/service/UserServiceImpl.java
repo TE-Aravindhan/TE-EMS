@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional
 	public Object toUpdate(UserInfo info) {
-		if(dao.existsById(info.getUserName())) {
-			UserInfo user = dao.getById(info.getUserName());
+		if(userDao.existsById(info.getUserName())) {
+			UserInfo user = userDao.getById(info.getUserName());
 			if(info.getName()!=null && !info.getName().isEmpty()) {
 				user.setName(info.getName());
 			}
@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 			if(info.getPassword()!=null && !info.getPassword().isEmpty()) {
 				user.setPassword(info.getPassword());
 			}
-			dao.save(user);
+			userDao.save(user);
 			return "Updated successfully";
 		}
 		return "Username not found";
@@ -74,5 +74,16 @@ public class UserServiceImpl implements UserService {
 	public UserInfo register(UserInfo info) {
 		return userDao.save(info);
 	}
+
+	@Override
+	public void getDelete(String userName) {
+		if (userName != null) {
+			
+			userDao.deleteById(userName);
+		}
+		throw new UserNotFoundException("data not found");
+
+	}
+  	
 
 }

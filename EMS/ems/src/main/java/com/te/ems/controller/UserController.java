@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,16 +45,22 @@ public class UserController {
 	
 	@PutMapping(path ="/update")
 	public ResponseEntity<UserResponse> update(@RequestBody UserInfo info) {
-		UserResponse response = new UserResponse(false, service.toUpdate(info));
+		UserResponse response = new UserResponse(false, userService.toUpdate(info));
 		return new ResponseEntity<UserResponse>(response, HttpStatus.OK);
 	}
 
 	
 	@GetMapping(path = "/userdetails")
 	public ResponseEntity<UserResponse> getAllDetails(){
-		UserResponse response = new UserResponse(userService.getAllDetials(),false);
+		UserResponse response = new UserResponse(false,userService.getAllDetials());
 		return new ResponseEntity<UserResponse>(response,HttpStatus.OK);
 	}
-
+	
+	@DeleteMapping(path = "/delete")
+	public ResponseEntity<UserResponse> getDetele(@PathVariable String userName){
+		userService.getDelete(userName);
+		UserResponse response = new UserResponse(false,"deleted success");
+		return new ResponseEntity<UserResponse>(response,HttpStatus.OK);	
+	}
 
 }

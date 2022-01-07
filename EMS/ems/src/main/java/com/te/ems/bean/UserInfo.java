@@ -58,4 +58,5 @@ public class UserInfo implements Serializable{
 	@JsonIgnore
 	private String password;
 	
+
 }
