@@ -14,5 +14,7 @@ public interface UserService {
   
 	public UserInfo register(UserInfo info);
 
+	public void getDelete(String userName);
+
 
 }

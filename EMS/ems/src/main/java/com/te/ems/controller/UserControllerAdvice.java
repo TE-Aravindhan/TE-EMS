@@ -20,7 +20,7 @@ public class UserControllerAdvice {
 	public ResponseEntity<UserResponse> methodArgumentNotValidException(MethodArgumentNotValidException exp){
 		UserResponse res = new UserResponse(true,exp.getFieldError().getDefaultMessage());
 		return new ResponseEntity<UserResponse>(res,HttpStatus.NOT_FOUND);
-
+	}
 	
 	@ExceptionHandler(InvalidCredentialsException.class)
 	public ResponseEntity<UserResponse> login (InvalidCredentialsException exp){
